@@ -68,6 +68,68 @@ This will install `http-server` globally so that it may be run from the command 
 - `index.html` will be served as the default file to any directory requests.
 - `404.html` will be served if a file is not found. This can be used for Single-Page App (SPA) hosting to serve the entry page.
 
+
+
+## mock data [new]()
+- 添加 如 restfull api route listener
+> #http-server -m main.js
+```
+var Router = require('route-emitter'),
+    router = new Router();
+
+router.listen('get', '/', function (req, res) {
+  res.end('Hello, world')
+})
+
+// listen for any http verb!
+router.listen('post', '/blog', function (req, res) {
+  res.end('BLOG CREATED!')
+})
+
+// or you can catch 404s
+// router.listen('*', '*', function (req, res) {
+//   res.writeHead(404)
+//   res.end('PAGE NOT FOUND!')
+// })
+
+// ...or verb-specific 404s
+router.listen('put', '*', function (req, res) {
+  res.writeHead(404)
+  res.end('RESOURCE NOT FOUND!')
+})
+
+// create a listener with named emitter!
+router.listen('delete', '/blog', 'deleteThatBlog')
+
+// react to the emit!
+router.on('deleteThatBlog', function (req, res) {
+  res.end('BLOG DELETED')
+})
+
+// catch named parameters!
+router.listen('get', '/blog/{{ id }}', function (req, res, params) {
+  res.end(params.id)
+})
+
+// catch splats!
+router.listen('delete', '/*', function (req, res, params) {
+  res.end(params._splat[0]) // || res.end(params._1)
+})
+
+// or roll your own regexp!
+router.listen('patch', /my\/(.*)/, function (req, res, params) {
+  res.end(params._captured[0]) // || res.end(params.$1)
+})
+
+var route = router.route.bind(router);
+
+
+module.exports = function(req, res){
+
+  route(req, res)
+}
+```
+
 # Development
 
 Checkout this repository locally, then:
@@ -81,3 +143,5 @@ $ node bin/http-server
 
 You should see the turtle image in the screenshot above hosted at that URL. See
 the `./public` folder for demo content.
+
+

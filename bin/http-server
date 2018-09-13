@@ -29,6 +29,7 @@ if (argv.h || argv.help) {
     '                     Optionally provide CORS headers list separated by commas',
     '  -o [path]    Open browser window after starting the server',
     '  -c           Cache time (max-age) in seconds [3600], e.g. -c10 for 10 seconds.',
+    '  -m --mock    mock data file. e.g.: mockfile.js [null]',
     '               To disable caching, use -c-1.',
     '  -U --utc     Use UTC time format in log messages.',
     '',
@@ -50,6 +51,7 @@ var port = argv.p || parseInt(process.env.PORT, 10),
     ssl = !!argv.S || !!argv.ssl,
     proxy = argv.P || argv.proxy,
     utc = argv.U || argv.utc,
+    reqHandler = argv.m || argv.mock || null,
     logger;
 
 if (!argv.s && !argv.silent) {
@@ -118,6 +120,18 @@ function listen(port) {
       cert: argv.C || argv.cert || 'cert.pem',
       key: argv.K || argv.key || 'key.pem'
     };
+  }
+
+  if(reqHandler) {
+    options.before = [];
+    options.before.push(function(req, res){
+      try {
+        require(path.join(process.cwd(), reqHandler))(req, res)
+      } catch (error) {
+        console.error(`${reqHandler}`,error)
+      } 
+      res.emit('next')
+    })
   }
 
   var server = httpServer.createServer(options);
