@@ -4,6 +4,7 @@
 
 var colors     = require('colors/safe'),
     os         = require('os'),
+    path       = require('path'),
     httpServer = require('../lib/http-server'),
     portfinder = require('portfinder'),
     opener     = require('opener'),
