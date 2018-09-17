@@ -1,6 +1,6 @@
 {
   "name": "@huangzj/http-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple zero-configuration command-line http server with mock data file",
   "main": "./lib/http-server",
   "repository": {

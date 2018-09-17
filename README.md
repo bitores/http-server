@@ -13,7 +13,7 @@
 
 Installation via `npm`:
 
-     npm install @bitores/http-server -g
+     npm install @huangzj/http-server -g
 
 This will install `http-server` globally so that it may be run from the command line.
 
