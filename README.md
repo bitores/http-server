@@ -13,13 +13,13 @@
 
 Installation via `npm`:
 
-     npm install http-server-mock2 -g
+     npm install @bitores/http-server -g
 
 This will install `http-server` globally so that it may be run from the command line.
 
 ## Usage:
 
-     http-server-mock [path] [options]
+     http-server [path] [options]
 
 `[path]` defaults to `./public` if the folder exists, and `./` otherwise.
 
@@ -46,6 +46,8 @@ This will install `http-server` globally so that it may be run from the command 
 `--cors` Enable CORS via the `Access-Control-Allow-Origin` header
 
 `-o` Open browser window after starting the server
+
+`-m` or `--mock` Add the mock data file
 
 `-c` Set cache time (in seconds) for cache-control max-age header, e.g. `-c10` for 10 seconds (defaults to `3600`). To disable caching, use `-c-1`.
 

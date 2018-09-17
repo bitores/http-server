@@ -1,6 +1,6 @@
 {
-  "name": "http-server-mock2",
-  "version": "0.11.3",
+  "name": "@bitores/http-server",
+  "version": "0.11.4",
   "description": "A simple zero-configuration command-line http server",
   "main": "./lib/http-server",
   "repository": {
@@ -86,7 +86,7 @@
   "license": "MIT",
   "preferGlobal": "true",
   "bin": {
-    "http-server-mock": "./bin/http-server-mock",
-    "hsm": "./bin/http-server-mock"
+    "http-server": "./bin/http-server",
+    "hs": "./bin/http-server"
   }
 }
