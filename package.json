@@ -1,7 +1,7 @@
 {
-  "name": "@bitores/http-server",
-  "version": "0.11.4",
-  "description": "A simple zero-configuration command-line http server",
+  "name": "@huangzj/http-server",
+  "version": "1.0.1",
+  "description": "A simple zero-configuration command-line http server with mock data file",
   "main": "./lib/http-server",
   "repository": {
     "type": "git",
@@ -9,7 +9,8 @@
   },
   "keywords": [
     "cli",
-    "command"
+    "command",
+    "http-server"
   ],
   "scripts": {
     "start": "node ./bin/http-server",
@@ -21,6 +22,10 @@
     "bin"
   ],
   "contributors": [
+    {
+      "name": "Huang Zhengjie",
+      "email": "773155801@qq.com"
+    },
     {
       "name": "Charlie Robbins",
       "email": "charlie.robbins@gmail.com"
@@ -81,10 +86,9 @@
     "vows": "0.7.x"
   },
   "bugs": {
-    "url": "https://github.com/nodeapps/http-server/issues"
+    "url": "https://github.com/bitores/http-server/issues"
   },
   "license": "MIT",
-  "preferGlobal": "true",
   "bin": {
     "http-server": "./bin/http-server",
     "hs": "./bin/http-server"

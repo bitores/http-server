@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/http-server.svg?style=flat-square)](https://www.npmjs.com/package/http-server)
 [![license](https://img.shields.io/github/license/indexzero/http-server.svg?style=flat-square)](https://github.com/indexzero/http-server)
 
-# http-server-mock2: a command-line http server
+# http-server: a command-line http server
 
 `http-server` is a simple, zero-configuration command-line http server.  It is powerful enough for production usage, but it's simple and hackable enough to be used for testing, local development, and learning.
 
@@ -74,7 +74,7 @@ This will install `http-server` globally so that it may be run from the command 
 
 ## mock data [new]()
 - 添加 如 restfull api route listener
-> #http-server-mock -m main.js
+> #http-server -m main.js
 ```
 var Router = require('route-emitter'),
     router = new Router();
